@@ -1,0 +1,14 @@
+docker network create -d bridge bbb_dev
+
+docker run --rm -d --publish 11211:11211 --network="bbb_dev" --name memcache memcached
+
+docker image build -t auth2 -f Dockerfile-Auth2-Server .
+docker run --rm -d --publish 80:80 --volume c:/Projects/Auth2/src:/var/www/localhost/htdocs/ --network="bbb_dev" --name auth2 auth2_webserver
+docker run --rm -d --publish 80:80 --network="bbb_dev" --name auth2 auth2
+
+docker image build --no-cache -t msmsfs -f Dockerfile-SFS-Server .
+docker run --rm -d --publish 9933:9933 --network="bbb_dev" --name sfs_server msmsfs
+
+docker image build --no-cache -t msm_pregame -f Dockerfile-Pregame-Server .
+docker run --rm -d --publish 8081:80 --volume c:/Projects/MSMPregameStagingGit:/var/www/localhost/htdocs/ --network="bbb_dev" --name pregame msm_pregame
+docker run --rm -d --publish 8081:80 --network="bbb_dev" --name pregame msm_pregame
