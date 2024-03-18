@@ -1,0 +1,22 @@
+{
+"platforms" : [{
+"type" : "ios",
+"login_types" : [
+	{"type" : "anon", "auto_create" : true},
+	{"type" : "gc", "auto_create" : false, "can_bind_to": true}
+]},
+
+{"type" : "android",
+"login_types": [
+	{"type" : "anon", "auto_create" : true, "can_bind_to": false},
+	{"type" : "gp", "auto_create" : false, "can_bind_to": true}
+]},
+
+{"type" : "pc",
+"login_types": [
+	{"type" : "anon", "auto_create" : true, "can_bind_to": false},
+	{"type" : "email", "auto_create" : false, "can_bind_to": true}
+]}
+
+]
+}

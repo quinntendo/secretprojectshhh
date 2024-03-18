@@ -1,0 +1,34 @@
+{
+	"platforms": [{
+		"type": "ios",
+		"login_types": [{
+			"type": "anon",
+			"auto_create": true
+		}],
+		"age_gate_consent_required": true 
+	},
+	{
+		"type": "android",
+		"login_types": [
+		{
+			"type": "anon",
+			"auto_create": true,
+			"can_bind_to": false
+		}],
+		"age_gate_consent_required": true 
+	},
+	{
+		"type": "pc",
+		"login_types": [{
+			"type": "anon",
+			"auto_create": true,
+			"can_bind_to": false
+		},
+		{
+			"type": "email",
+			"auto_create": false,
+			"can_bind_to": true
+		}],
+		"age_gate_consent_required": true 
+	}]
+}
